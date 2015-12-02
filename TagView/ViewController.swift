@@ -17,9 +17,8 @@ class ViewController: UIViewController,TagViewDelegate {
         
         let tag = TagView.initFromNib()
         tag.frame = CGRectMake(40, 40, 150, 25)
-        tag.quantity.text = "2"
-        tag.label.text = "Javascript"
-        tag.updateView()
+        
+        tag.setPropertiesFor("Javascript", quantity: "2", borderColor: UIColor.redColor(), textColor: UIColor.redColor(), selectedBackgroundColor: UIColor.grayColor(), quantityBackgroundColor: UIColor.lightGrayColor(), quantityLabelColor: UIColor.whiteColor())
         tag.delegate = self
         
         let tag2 = TagView.initFromNib()

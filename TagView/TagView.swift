@@ -49,6 +49,25 @@ class TagView: UIView {
         return view
     }
     
+    func setPropertiesFor(tagText:String, quantity: String, borderColor: UIColor, textColor: UIColor, selectedBackgroundColor: UIColor, quantityBackgroundColor: UIColor, quantityLabelColor:UIColor) {
+        self.label.text = tagText
+        self.quantity.text = quantity
+        
+        self.borderColor = borderColor
+        self.textColor = textColor
+        self.selectedBackgroundColor = selectedBackgroundColor
+        self.quantityBackgroundColor = quantityBackgroundColor
+        self.quantityLabelColor = quantityLabelColor
+        
+        updateView()
+    }
+    
+    func setSelected(value:Bool) {
+        isSelected = value
+        
+        updateView()
+    }
+    
     func viewHasBeenTapped() {
         if isSelected {
             isSelected = false
@@ -81,7 +100,7 @@ class TagView: UIView {
         self.containerView.layer.cornerRadius = self.bounds.height/2
         self.containerView.layer.borderWidth = borderSize
         
-        self.layer.borderColor = borderColor.CGColor
+        self.containerView.layer.borderColor = borderColor.CGColor
         if isSelected {
             self.containerView.backgroundColor = borderColor
         } else {
